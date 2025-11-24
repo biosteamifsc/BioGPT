@@ -1,0 +1,5 @@
+Este projeto visa desenvolver um sistema interativo para consulta de dados proteômicos utilizando processamento de linguagem natural (PLN) , tendo como base de treinamento principal o banco de dados biológico UniProt. 
+A iniciativa busca democratizar o acesso a informações biológicas, permitindo que pesquisadores e estudantes façam consultas em linguagem natural, superando barreiras técnicas como domínio em banco de dados relacional, tipos de arquivos, etc. 
+A inovação reside no uso de modelos avançados de inteligência artificial, como GPT ou BERT, para compreender perguntas e fornecer respostas precisas. 
+O método inclui o pré-processamento dos dados do UniProt, criação de pipelines de busca semântica e integração com APIs para respostas intuitivas. 
+O projeto contribui para o avanço da tecnologia e poderá ser expandida para outros bancos de dados biológicos no futuro da bioinformática e o entendimento das funções biológicas das proteínas, além de fomentar o uso de tecnologia e poderá ser expandida para outros bancos de dados biológicos no futuro.
