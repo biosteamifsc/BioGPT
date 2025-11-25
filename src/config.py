@@ -1,6 +1,6 @@
 class Config:
     """Stores all application-wide configuration constants."""
-    TSV_FILE = 'db/uniprot.tsv' 
+    TSV_FILE = 'db/uniprotkb_20251125.tsv' 
     DB_TABLE_NAME = 'proteins' 
     DEFAULT_TOP_RESULTS = 5
     
