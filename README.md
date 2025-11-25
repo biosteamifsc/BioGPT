@@ -73,26 +73,26 @@ The BioGPT API exposes a single endpoint for all query processing.
 **Request:**
 
 ```bash
-curl -X POST [http://127.0.0.1:5000/api/biogpt](http://127.0.0.1:5000/api/biogpt) \
+curl -X POST http://127.0.0.1:5000/api/biogpt \
      -H "Content-Type: application/json" \
-     -d '{"query": "What is the primary function of proteins with zinc ion binding activity?", "model_type": "rag"}'
+     -d '{"query": "What is the role of Complement C1q in the immune system?", "model_type": "rag"}'
 ```
 
 **Response (JSON):**
 
 ```json
 {
-  "model_type": "RAG",
-  "user_query": "What is the primary function of proteins with zinc ion binding activity?",
-  "response": "Proteins with zinc ion binding activity, such as Carbonic Anhydrase (CA2), are typically involved in enzyme catalysis...",
-  "retrieved_contexts": [
-    {
-       "Entry_Name": "CA2_SHEEP",
-       "Similarity_Score": "0.8120",
-       "Context_Bio": "Protein: Carbonic anhydrase..."
-    }
-  ],
-  "status": "success"
+   "model_type":"RAG",
+   "response":"What is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the immune system?\n\nWhat is the role of Complement C1q in the",
+   "retrieved_contexts":[
+      {
+         "Context_Bio":"Protein: Glucan endo-1,3-beta-D-glucosidase 1 (Endo-1,3-beta-glucanase 1) (EC 3.2.1.39) (Laminarinase) (RmLam81A). Organism: Rhizomucor miehei. Subcellular Location: SUBCELLULAR LOCATION: Secreted, cell wall {ECO:0000250|UniProtKB:P53753}.. Biological Process: cell wall organization [GO:0071555]; polysaccharide catabolic process [GO:0000272]. Molecular Function: endo-1,3(4)-beta-glucanase activity [GO:0052861]; glucan endo-1,3-beta-D-glucosidase activity [GO:0042973]",
+         "Entry_Name":"ENG1_RHIMI",
+         "Similarity_Score":"0.7025"
+      },
+   ],
+   "status":"success",
+   "user_query":"What is the role of Complement C1q in the immune system?"
 }
 ```
 
@@ -103,20 +103,21 @@ curl -X POST [http://127.0.0.1:5000/api/biogpt](http://127.0.0.1:5000/api/biogpt
 **Request:**
 
 ```bash
-curl -X POST [http://127.0.0.1:5000/api/biogpt](http://127.0.0.1:5000/api/biogpt) \
-     -H "Content-Type: application/json" \
-     -d '{"query": "Count how many secreted proteins have a mass above 100000.", "model_type": "sql"}'
+curl -X POST http://127.0.0.1:5000/api/biogpt      -H "Content-Type: application/json"      -d '{"query": "Count how many proteins are secreted.", "model_type": "sql"}'
 ```
 
 **Response (JSON):**
 
 ```json
 {
-  "model_type": "SQL",
-  "user_query": "Count how many secreted proteins have a mass above 100000.",
-  "sql_query": "SELECT COUNT(*) FROM proteins WHERE Subcellular_location_CC LIKE '%Secreted%' AND Mass > 100000",
-  "count": 5,
-  "data": [],
-  "status": "success"
+   "count":33597,
+   "data":[
+      
+   ],
+   "message":"Query executed successfully, found 33597 records.",
+   "model_type":"SQL",
+   "sql_query":"SELECT COUNT(*) FROM proteins WHERE 1=1 AND Subcellular_location_CC LIKE '%Secreted%'",
+   "status":"success",
+   "user_query":"Count how many proteins are secreted."
 }
 ```
